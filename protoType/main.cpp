@@ -17,6 +17,7 @@
 #include "Utils/Vec2D.h"
 
 #include "Color.h"
+#include "ScreenBuffer.h"
 
 using namespace std;
 
@@ -25,8 +26,6 @@ const int SCREEN_WIDTH = 224;
 const int SCREEN_HEIGHT = 288;
 
 
-void SetPixel(SDL_Surface* noptrWindowSurface, uint32_t color, int x, int y);
-size_t GetIndex(SDL_Surface* noptrWindowSurface, int r, int c);
 
 
 
@@ -50,20 +49,20 @@ int main(int argc, char* argv[])
 	// effectively some type of canvas
 	// drawing methods use surface
 	SDL_Surface* noptrWindowSurface = SDL_GetWindowSurface(optrWindow);
-
-
-
 	SDL_PixelFormat* pixelFormat = noptrWindowSurface->format;
-	cout << "The win pixel format is: " << SDL_GetPixelFormatName(pixelFormat->format);
-
-
+	
 
 	Color::InitColorFormat(pixelFormat);
 	//Color c(255, 255, 0, 255);
 
+	ScreenBuffer screenbuf;
 
-	SetPixel(noptrWindowSurface, Color::Orange().GetPixcelColor(), SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+	screenbuf.Init(pixelFormat->format, noptrWindowSurface->w, noptrWindowSurface->h);
+	screenbuf.SetPixel(Color::Red(), SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 
+	SDL_BlitSurface(screenbuf.GetSurface(), nullptr, noptrWindowSurface, nullptr);
+
+	cout << "The win pixel format is: " << SDL_GetPixelFormatName(pixelFormat->format);
 
 	SDL_UpdateWindowSurface(optrWindow);
 	
@@ -93,25 +92,6 @@ int main(int argc, char* argv[])
 
 
 
-void SetPixel(SDL_Surface* noptrWindowSurface, uint32_t color, int x, int y) {
-
-	SDL_LockSurface(noptrWindowSurface);
-
-	uint32_t* pixels = (uint32_t*)noptrWindowSurface->pixels;
-
-	size_t index = GetIndex(noptrWindowSurface, y, x);
-
-	pixels[index] = color;
-
-	SDL_UnlockSurface(noptrWindowSurface);
-}
-
-
-size_t GetIndex(SDL_Surface* noptrWindowSurface, int r, int c) {
-
-
-	return r * noptrWindowSurface->w + c;
-}
 
 
 

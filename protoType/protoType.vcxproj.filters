@@ -30,6 +30,9 @@
     <ClCompile Include="Color.cpp">
       <Filter>소스 파일\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="ScreenBuffer.cpp">
+      <Filter>소스 파일\Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -42,6 +45,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Color.h">
+      <Filter>소스 파일\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenBuffer.h">
       <Filter>소스 파일\Graphics</Filter>
     </ClInclude>
   </ItemGroup>

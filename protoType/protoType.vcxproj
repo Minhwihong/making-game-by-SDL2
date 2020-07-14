@@ -144,12 +144,14 @@
   <ItemGroup>
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ScreenBuffer.cpp" />
     <ClCompile Include="Utils\Utils.cpp" />
     <ClCompile Include="Utils\Vec2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="ScreenBuffer.h" />
     <ClInclude Include="Utils\Utils.h" />
     <ClInclude Include="Utils\Vec2D.h" />
   </ItemGroup>
