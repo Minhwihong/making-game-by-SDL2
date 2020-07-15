@@ -18,13 +18,14 @@
 
 #include "Color.h"
 #include "ScreenBuffer.h"
+#include "Screen.h"
 
 using namespace std;
 
 
 const int SCREEN_WIDTH = 224;
 const int SCREEN_HEIGHT = 288;
-
+const int MAGNIFICATION = 3;
 
 
 
@@ -33,39 +34,44 @@ int main(int argc, char* argv[])
 {
 	//initializing
 
-	if (SDL_Init(SDL_INIT_VIDEO)) {
-		cout << "error SDL init!" << endl;
-		return 1;
-	}
+	//if (SDL_Init(SDL_INIT_VIDEO)) {
+	//	cout << "error SDL init!" << endl;
+	//	return 1;
+	//}
 
 
-	SDL_Window* optrWindow = SDL_CreateWindow("Arcade", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
+	//SDL_Window* optrWindow = SDL_CreateWindow("Arcade", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
 
-	if (optrWindow == nullptr) {
-		cout << "error SDL_CreateWindow!!" << SDL_GetError() << endl;
-		return 1;
-	}
+	//if (optrWindow == nullptr) {
+	//	cout << "error SDL_CreateWindow!!" << SDL_GetError() << endl;
+	//	return 1;
+	//}
 
-	// effectively some type of canvas
-	// drawing methods use surface
-	SDL_Surface* noptrWindowSurface = SDL_GetWindowSurface(optrWindow);
-	SDL_PixelFormat* pixelFormat = noptrWindowSurface->format;
-	
+	//// effectively some type of canvas
+	//// drawing methods use surface
+	//SDL_Surface* noptrWindowSurface = SDL_GetWindowSurface(optrWindow);
+	//SDL_PixelFormat* pixelFormat = noptrWindowSurface->format;
+	//
 
-	Color::InitColorFormat(pixelFormat);
-	//Color c(255, 255, 0, 255);
+	//Color::InitColorFormat(pixelFormat);
+	////Color c(255, 255, 0, 255);
 
-	ScreenBuffer screenbuf;
+	//ScreenBuffer screenbuf;
 
-	screenbuf.Init(pixelFormat->format, noptrWindowSurface->w, noptrWindowSurface->h);
-	screenbuf.SetPixel(Color::Red(), SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+	//screenbuf.Init(pixelFormat->format, noptrWindowSurface->w, noptrWindowSurface->h);
+	//screenbuf.SetPixel(Color::Red(), SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 
-	SDL_BlitSurface(screenbuf.GetSurface(), nullptr, noptrWindowSurface, nullptr);
+	//SDL_BlitSurface(screenbuf.GetSurface(), nullptr, noptrWindowSurface, nullptr);
 
-	cout << "The win pixel format is: " << SDL_GetPixelFormatName(pixelFormat->format);
+	//cout << "The win pixel format is: " << SDL_GetPixelFormatName(pixelFormat->format);
 
-	SDL_UpdateWindowSurface(optrWindow);
-	
+	//SDL_UpdateWindowSurface(optrWindow);
+
+	Screen theScreen;
+
+	theScreen.Init(SCREEN_WIDTH, SCREEN_HEIGHT, MAGNIFICATION);
+	theScreen.Draw(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, Color::Yellow());
+	theScreen.SwapScreen();
 
 
 	SDL_Event sdlEvent;
@@ -83,9 +89,6 @@ int main(int argc, char* argv[])
 		}
 	}
 
-	SDL_DestroyWindow(optrWindow);
-	SDL_Quit();
-	
 	return 0;
 }
 
