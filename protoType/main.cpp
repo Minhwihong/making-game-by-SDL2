@@ -19,13 +19,14 @@
 #include "Color.h"
 #include "ScreenBuffer.h"
 #include "Screen.h"
+#include "Line2D.h"
 
 using namespace std;
 
 
 const int SCREEN_WIDTH = 224;
 const int SCREEN_HEIGHT = 288;
-const int MAGNIFICATION = 3;
+const int MAGNIFICATION = 2;
 
 
 
@@ -66,11 +67,14 @@ int main(int argc, char* argv[])
 	//cout << "The win pixel format is: " << SDL_GetPixelFormatName(pixelFormat->format);
 
 	//SDL_UpdateWindowSurface(optrWindow);
+	Line2D line = { Vec2D(0,0), Vec2D(SCREEN_WIDTH, SCREEN_HEIGHT) };
+
 
 	Screen theScreen;
 
 	theScreen.Init(SCREEN_WIDTH, SCREEN_HEIGHT, MAGNIFICATION);
-	theScreen.Draw(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, Color::Yellow());
+	//theScreen.Draw(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, Color::Yellow());
+	theScreen.Draw(line, Color::White());
 	theScreen.SwapScreen();
 
 

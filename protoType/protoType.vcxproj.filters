@@ -16,6 +16,9 @@
     <Filter Include="소스 파일\Graphics">
       <UniqueIdentifier>{651e8b3c-537c-4e92-a567-d7d81b8546e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Shapes">
+      <UniqueIdentifier>{f92f44dd-4f63-45d6-a690-aaeedb249094}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Utils\Utils.cpp">
@@ -36,6 +39,9 @@
     <ClCompile Include="Screen.cpp">
       <Filter>소스 파일\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Line2D.cpp">
+      <Filter>소스 파일\Shapes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -55,6 +61,9 @@
     </ClInclude>
     <ClInclude Include="Screen.h">
       <Filter>소스 파일\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Line2D.h">
+      <Filter>소스 파일\Shapes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -6,6 +6,7 @@
 #include "ScreenBuffer.h"
 #include "Color.h"
 #include "Utils/Vec2D.h"
+#include "Line2D.h"
 
 class Screen {
 public:
@@ -26,6 +27,7 @@ public:
 	//Draw Method
 	void Draw(int x, int y, const Color& color);
 	void Draw(const Vec2D& point, const Color& color);
+	void Draw(const Line2D& line, const Color& color);
 
 	// not use below 2 method
 	Screen(const Screen& screen) = delete;
