@@ -3,7 +3,7 @@
 #include <cassert>
 #include <cmath>
 #include "Screen.h"
-#include "Utils/Vec2D.h"
+#include "../Utils/Vec2D.h"
 
 Screen::Screen() : mWidth(0), mHeight(0), mOptrWindow(nullptr), mNoptrWindowSurface(nullptr)
 {
@@ -93,20 +93,22 @@ void Screen::Draw(const Vec2D& point, const Color& color)
 	assert(mOptrWindow);
 	if (mOptrWindow == nullptr)	return;
 
-	mBackBuffer.SetPixel(color, point.GetX(), point.GetY());
+	mBackBuffer.SetPixel(color, (int)point.GetX(), (int)point.GetY());
 }
 
-void Screen::Draw(const Line2D& line, const Color& color)
+
+//10. Bresenham's Line Algorithm
+void Screen::DrawLine(const Line2D& line, const Color& color)
 {
 	assert(mOptrWindow);
 	if (mOptrWindow == nullptr)	return;
 
 	int dx, dy;
 
-	int x0 = roundf(line.GetP0().GetX());
-	int y0 = roundf(line.GetP0().GetY());
-	int x1 = roundf(line.GetP1().GetX());
-	int y1 = roundf(line.GetP1().GetY());
+	int x0 = (int)roundf(line.GetP0().GetX());
+	int y0 = (int)roundf(line.GetP0().GetY());
+	int x1 = (int)roundf(line.GetP1().GetX());
+	int y1 = (int)roundf(line.GetP1().GetY());
 
 	dx = x1 - x0;
 	dy = y1 - y0;
@@ -155,6 +157,20 @@ void Screen::Draw(const Line2D& line, const Color& color)
 	}
 
 }
+
+void Screen::DrawTriangle(const Triangle& tr, const Color& color)
+{
+
+	Line2D line1 = { Vec2D(tr.GetP0()) , Vec2D(tr.GetP1()) };
+	Line2D line2 = { Vec2D(tr.GetP0()) , Vec2D(tr.GetP2()) };
+	Line2D line3 = { Vec2D(tr.GetP1()) , Vec2D(tr.GetP2()) };
+
+	DrawLine(line1, color);
+	DrawLine(line2, color);
+	DrawLine(line3, color);
+}
+
+
 
 void Screen::ClearScreen()
 {

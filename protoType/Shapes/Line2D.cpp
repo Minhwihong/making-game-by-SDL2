@@ -1,7 +1,7 @@
 
 #include"Line2D.h"
 #include <cmath>
-#include "Utils/Utils.h"
+#include "../Utils/Utils.h"
 
 Line2D::Line2D() : Line2D(Vec2D::Zero, Vec2D::Zero)
 {
@@ -38,7 +38,7 @@ Vec2D Line2D::ClosestPoint(const Vec2D& p, bool limitToSegment) const
 	float t = dot / l2;
 
 	if (limitToSegment) {
-		t = std::fmax(0, std::fmin(1.0f, t));
+		t = (float)std::fmax(0, std::fmin(1.0f, t));
 	}
 
 	return Vec2D(mP0 + p0ToP1*t);

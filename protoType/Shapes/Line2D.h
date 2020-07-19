@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SDL.h>
-#include "Utils/Vec2D.h"
+#include "../Utils/Vec2D.h"
 
 
 class Line2D {

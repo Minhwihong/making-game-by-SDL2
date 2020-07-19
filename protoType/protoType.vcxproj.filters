@@ -30,16 +30,25 @@
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Color.cpp">
+    <ClCompile Include="Graphics\Color.cpp">
       <Filter>소스 파일\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="ScreenBuffer.cpp">
+    <ClCompile Include="Graphics\Screen.cpp">
       <Filter>소스 파일\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Screen.cpp">
+    <ClCompile Include="Graphics\ScreenBuffer.cpp">
       <Filter>소스 파일\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Line2D.cpp">
+    <ClCompile Include="Shapes\Line2D.cpp">
+      <Filter>소스 파일\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Shapes\shape.cpp">
+      <Filter>소스 파일\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Shapes\Triangle.cpp">
+      <Filter>소스 파일\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="Shapes\AARect.cpp">
       <Filter>소스 파일\Shapes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,16 +62,25 @@
     <ClInclude Include="Utils\Vec2D.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Color.h">
+    <ClInclude Include="Graphics\Color.h">
       <Filter>소스 파일\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="ScreenBuffer.h">
+    <ClInclude Include="Graphics\Screen.h">
       <Filter>소스 파일\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Screen.h">
+    <ClInclude Include="Graphics\ScreenBuffer.h">
       <Filter>소스 파일\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Line2D.h">
+    <ClInclude Include="Shapes\Line2D.h">
+      <Filter>소스 파일\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Shapes\shape.h">
+      <Filter>소스 파일\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Shapes\Triangle.h">
+      <Filter>소스 파일\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Shapes\AARect.h">
       <Filter>소스 파일\Shapes</Filter>
     </ClInclude>
   </ItemGroup>

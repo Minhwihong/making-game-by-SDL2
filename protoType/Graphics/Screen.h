@@ -5,8 +5,10 @@
 
 #include "ScreenBuffer.h"
 #include "Color.h"
-#include "Utils/Vec2D.h"
-#include "Line2D.h"
+#include "../Utils/Utils.h"
+#include "../Utils/Vec2D.h"
+#include "../Shapes/Line2D.h"
+#include "../Shapes/Triangle.h"
 
 class Screen {
 public:
@@ -27,7 +29,8 @@ public:
 	//Draw Method
 	void Draw(int x, int y, const Color& color);
 	void Draw(const Vec2D& point, const Color& color);
-	void Draw(const Line2D& line, const Color& color);
+	void DrawLine(const Line2D& line, const Color& color);
+	void DrawTriangle(const Triangle& tr, const Color& color);
 
 	// not use below 2 method
 	Screen(const Screen& screen) = delete;

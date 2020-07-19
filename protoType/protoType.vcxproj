@@ -142,20 +142,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Color.cpp" />
-    <ClCompile Include="Line2D.cpp" />
+    <ClCompile Include="Graphics\Color.cpp" />
+    <ClCompile Include="Graphics\Screen.cpp" />
+    <ClCompile Include="Graphics\ScreenBuffer.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Screen.cpp" />
-    <ClCompile Include="ScreenBuffer.cpp" />
+    <ClCompile Include="Shapes\AARect.cpp" />
+    <ClCompile Include="Shapes\Line2D.cpp" />
+    <ClCompile Include="Shapes\shape.cpp" />
+    <ClCompile Include="Shapes\Triangle.cpp" />
     <ClCompile Include="Utils\Utils.cpp" />
     <ClCompile Include="Utils\Vec2D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Color.h" />
-    <ClInclude Include="Line2D.h" />
+    <ClInclude Include="Graphics\Color.h" />
+    <ClInclude Include="Graphics\Screen.h" />
+    <ClInclude Include="Graphics\ScreenBuffer.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Screen.h" />
-    <ClInclude Include="ScreenBuffer.h" />
+    <ClInclude Include="Shapes\AARect.h" />
+    <ClInclude Include="Shapes\Line2D.h" />
+    <ClInclude Include="Shapes\shape.h" />
+    <ClInclude Include="Shapes\Triangle.h" />
     <ClInclude Include="Utils\Utils.h" />
     <ClInclude Include="Utils\Vec2D.h" />
   </ItemGroup>

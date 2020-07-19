@@ -16,10 +16,13 @@
 #include "Utils/Utils.h"
 #include "Utils/Vec2D.h"
 
-#include "Color.h"
-#include "ScreenBuffer.h"
-#include "Screen.h"
-#include "Line2D.h"
+#include "Shapes/Line2D.h"
+#include "Shapes/Triangle.h"
+#include "Shapes/AARect.h"
+
+#include "Graphics/ScreenBuffer.h"
+#include "Graphics/Screen.h"
+
 
 using namespace std;
 
@@ -33,6 +36,7 @@ const int MAGNIFICATION = 2;
 
 int main(int argc, char* argv[])
 {
+#if 0
 	//initializing
 
 	//if (SDL_Init(SDL_INIT_VIDEO)) {
@@ -67,14 +71,23 @@ int main(int argc, char* argv[])
 	//cout << "The win pixel format is: " << SDL_GetPixelFormatName(pixelFormat->format);
 
 	//SDL_UpdateWindowSurface(optrWindow);
-	Line2D line = { Vec2D(0,0), Vec2D(SCREEN_WIDTH, SCREEN_HEIGHT) };
+#endif
+
+	Triangle tr(Vec2D(2, 2), Vec2D(99, 5), Vec2D(8, 88));
+
+	Line2D line = { Vec2D(0,0), Vec2D(SCREEN_WIDTH-1, SCREEN_HEIGHT-1) };
 
 
 	Screen theScreen;
 
 	theScreen.Init(SCREEN_WIDTH, SCREEN_HEIGHT, MAGNIFICATION);
 	//theScreen.Draw(SCREEN_WIDTH/2, SCREEN_HEIGHT/2, Color::Yellow());
-	theScreen.Draw(line, Color::White());
+
+
+	theScreen.DrawLine(line, Color::White());
+	theScreen.DrawTriangle(tr, Color::Cyan());
+
+
 	theScreen.SwapScreen();
 
 
