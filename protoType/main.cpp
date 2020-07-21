@@ -19,6 +19,7 @@
 #include "Shapes/Line2D.h"
 #include "Shapes/Triangle.h"
 #include "Shapes/AARect.h"
+#include "Shapes/Circle.h"
 
 #include "Graphics/ScreenBuffer.h"
 #include "Graphics/Screen.h"
@@ -27,9 +28,9 @@
 using namespace std;
 
 
-const int SCREEN_WIDTH = 224;
-const int SCREEN_HEIGHT = 288;
-const int MAGNIFICATION = 2;
+const int SCREEN_WIDTH = 224*2;
+const int SCREEN_HEIGHT = 288*2;
+const int MAGNIFICATION = 1;
 
 
 
@@ -74,6 +75,8 @@ int main(int argc, char* argv[])
 #endif
 
 	Triangle tr(Vec2D(2, 2), Vec2D(99, 5), Vec2D(8, 88));
+	AARect rect(Vec2D(6, 6), 70, 77);
+	Circle cir = { Vec2D(SCREEN_WIDTH / 2 + 50, SCREEN_HEIGHT / 2 + 50), 110 };
 
 	Line2D line = { Vec2D(0,0), Vec2D(SCREEN_WIDTH-1, SCREEN_HEIGHT-1) };
 
@@ -86,6 +89,8 @@ int main(int argc, char* argv[])
 
 	theScreen.DrawLine(line, Color::White());
 	theScreen.DrawTriangle(tr, Color::Cyan());
+	theScreen.DrawRect(rect, Color::Green());
+	theScreen.DrawCircle(cir, Color::Blue());
 
 
 	theScreen.SwapScreen();

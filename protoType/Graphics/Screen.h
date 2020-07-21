@@ -9,6 +9,8 @@
 #include "../Utils/Vec2D.h"
 #include "../Shapes/Line2D.h"
 #include "../Shapes/Triangle.h"
+#include "../Shapes/AARect.h"
+#include "../Shapes/Circle.h"
 
 class Screen {
 public:
@@ -31,6 +33,8 @@ public:
 	void Draw(const Vec2D& point, const Color& color);
 	void DrawLine(const Line2D& line, const Color& color);
 	void DrawTriangle(const Triangle& tr, const Color& color);
+	void DrawRect(const AARect& rect, const Color& color);
+	void DrawCircle(const Circle& cir, const Color& color);
 
 	// not use below 2 method
 	Screen(const Screen& screen) = delete;

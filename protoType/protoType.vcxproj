@@ -147,6 +147,7 @@
     <ClCompile Include="Graphics\ScreenBuffer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Shapes\AARect.cpp" />
+    <ClCompile Include="Shapes\Circle.cpp" />
     <ClCompile Include="Shapes\Line2D.cpp" />
     <ClCompile Include="Shapes\shape.cpp" />
     <ClCompile Include="Shapes\Triangle.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Graphics\ScreenBuffer.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shapes\AARect.h" />
+    <ClInclude Include="Shapes\Circle.h" />
     <ClInclude Include="Shapes\Line2D.h" />
     <ClInclude Include="Shapes\shape.h" />
     <ClInclude Include="Shapes\Triangle.h" />

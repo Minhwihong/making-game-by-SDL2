@@ -165,9 +165,71 @@ void Screen::DrawTriangle(const Triangle& tr, const Color& color)
 	Line2D line2 = { Vec2D(tr.GetP0()) , Vec2D(tr.GetP2()) };
 	Line2D line3 = { Vec2D(tr.GetP1()) , Vec2D(tr.GetP2()) };
 
+	Line2D p0p1 = Line2D(tr.GetP0(), tr.GetP1());
+	Line2D p1p2 = Line2D(tr.GetP1(), tr.GetP2());
+	Line2D p2p0 = Line2D(tr.GetP2(), tr.GetP0());
+
 	DrawLine(line1, color);
 	DrawLine(line2, color);
 	DrawLine(line3, color);
+}
+
+void Screen::DrawRect(const AARect& rect, const Color& color) {
+
+	std::vector<Vec2D> points = rect.GetPoints();
+
+	Line2D p0p1 = Line2D(points[0], points[1]);
+	Line2D p1p2 = Line2D(points[1], points[2]);
+	Line2D p2p3 = Line2D(points[2], points[3]);
+	Line2D p3p0 = Line2D(points[3], points[0]);
+
+	//Line2D line1 = { rect.GetPoints()[0] , rect.GetPoints()[1] };
+	//Line2D line2 = { rect.GetPoints()[1] , rect.GetPoints()[2] };
+	//Line2D line3 = { rect.GetPoints()[2] , rect.GetPoints()[3] };
+	//Line2D line4 = { rect.GetPoints()[3] , rect.GetPoints()[0] };
+
+
+	//DrawLine(line1, color);
+	//DrawLine(line2, color);
+	//DrawLine(line3, color);
+	//DrawLine(line4, color);
+
+	//Vec2D GetTopLeftPoint() const { return mPoints[0]; }
+	Vec2D origin = rect.GetTopLeftPoint();
+	Vec2D exten = rect.GetBottomRightPoint();
+
+	Line2D line1 = { origin ,								Vec2D(exten.GetX() ,origin.GetY())	};
+	Line2D line2 = { Vec2D(exten.GetX() ,origin.GetY()),	exten								};
+	Line2D line3 = { exten ,								Vec2D(origin.GetX() ,exten.GetY())	};
+	Line2D line4 = { Vec2D(origin.GetX() , exten.GetY()) ,	origin								};
+	
+	DrawLine(line1, color);
+	DrawLine(line2, color);
+	DrawLine(line3, color);
+	DrawLine(line4, color);
+}
+
+
+
+void Screen::DrawCircle(const Circle& cir, const Color& color) {
+
+	static uint32_t NUM_CIRCLE_SEGMENTS = 60;
+
+	float angle = TWO_PI / float(NUM_CIRCLE_SEGMENTS);
+
+	Vec2D p0 = Vec2D(cir.GetCenterPoint().GetX() + cir.GetRadius(), cir.GetCenterPoint().GetY() );
+	Vec2D p1 = p0;
+	Line2D nextLineDraw;
+
+	for (uint32_t idx = 0; idx < NUM_CIRCLE_SEGMENTS; ++idx) {
+		p1.Rotate(angle, cir.GetCenterPoint());
+		nextLineDraw.SetP1(p1);
+		nextLineDraw.SetP0(p0);
+
+		DrawLine(nextLineDraw, color);
+		p0 = p1;
+	}
+
 }
 
 
